@@ -1,34 +1,8 @@
 console.clear()
-/* Armar un array de objetos, donde cada objeto sea un producto distinto (mínimo 5 productos). Puede tener las claves/keys que deseen (mínimo 2). Todos los productos deben tener las mismas keys. */
-/* Crear una función que permita AGREGAR, MODIFICAR y ELIMINAR productos por Prompt y MOSTRAR todos los productos por pantalla */
-
-const productos = [
-{
-    id: 1,
-    nombre: 'Notebook Lenovo',
-    precio: 100000    
-},
-{
-    id: 2,
-    nombre: 'Parlantes Genius',
-    precio: 4900      
-},
-{
-    id: 3,
-    nombre: 'Mouse inalámbrico',
-    precio: 2500      
-},
-{
-    id: 4,
-    nombre: 'Hub Usb 3.0',
-    precio: 1500      
-},
-{
-    id: 5,
-    nombre: 'Mouse Pad Desk',
-    precio: 1980      
-}
-]
+/* Armar un array de objetos, donde cada objeto sea un producto distinto (mínimo 5 productos). 
+Puede tener las claves/keys que deseen (mínimo 2). Todos los productos deben tener las mismas keys. */
+/* Crear una función que permita AGREGAR, MODIFICAR y ELIMINAR productos por Prompt y MOSTRAR todos 
+los productos por pantalla */
 
 let opcion = null;
 
@@ -105,23 +79,7 @@ function eliminarProducto(){
     })    
 
     let id = Number(prompt('Ingrese el ID del Producto a eliminar:' + '\n' + '\n' + 'PRODUCTOS:' + '\n' + productosPorAlert))      
-
-    /*
-    VER:
-    productos.forEach(p =>{        
-        let index = p.indexOf(productos[p].id) 
-        if(index > -1){
-            p.splice(index, 1)
-        }
-        alert('Producto eliminado correctamente')
-    })
-    */        
-    
-    //VER: 
-    //productos.splice(0, p.id) //a partir de la posicion 0, eliminame el id que pasó el Usuario.
         
-    // VER: elimina OK el ultimo elemento del array. Ver cómo eliminar un elemento aleatorio del Array segun el ID.
-        //productos.pop(id);    
     
 }
 

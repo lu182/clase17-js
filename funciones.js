@@ -21,8 +21,7 @@ function agregarProducto(){
         if(productos[p].id === id){
             existeId = true;
         }
-    }   
-    
+    }    
 
     if(!id || !nombre || !precio){
         alert('Los datos ingresados son incorrectos') 
@@ -39,30 +38,32 @@ function modificarProducto(){
     
     let id = Number(prompt('Ingrese el ID del Producto a modificar:'))
     
-    productos.forEach(p =>{
-        if(p.id === id){
+    for (let i = 0; i < productos.length; i++){
+        if(productos[i].id === id){
             let nombre = prompt('Ingrese el nuevo nombre del Producto:')
             let precio = Number(prompt('Ingrese el nuevo precio del Producto:'))
-            p.nombre = nombre, p.precio = precio;
+            productos[i].nombre = nombre, productos[i].precio = precio
             alert('Producto modificado con éxito')
-        }else if(!p.id === id){
-            alert('No existe ese ID. Pruebe con otro') //VER: funciona ok pero no muestra el alert
+            break; 
+        }else{
+            alert('No existe ese ID. Pruebe con otro')
+            break;  
         }
-    })    
+    }     
 }
-
 
 function eliminarProducto(){
     
     let id = Number(prompt('Ingrese el ID del Producto a eliminar:')) 
         
-    for (let i = 0; i < productos.length; i++) {
+    for (let i = 0; i < productos.length; i++) {        
         if(productos[i].id === id){
             productos.splice(i, 1);
-            alert('Producto eliminado con éxito')
-        }else if(!productos[i].id === id){
-            alert('No existe ese ID. Pruebe con otro') //VER: funciona ok pero no muestra el alert
-        }
-    }
-    
+            alert('Producto eliminado con éxito');
+            break;            
+        }else{
+            alert('No existe ese ID. Pruebe con otro'); 
+            break;      
+        }        
+    }    
 }

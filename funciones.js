@@ -11,6 +11,7 @@ function mostrarProductos(){
 
 
 function agregarProducto(){
+    
     let id = Number(prompt('Ingrese el Id del Producto'))
     let nombre = prompt('Ingrese el nombre del Producto')
     let precio = Number(prompt('Ingrese el precio del Producto'))     
@@ -38,32 +39,27 @@ function modificarProducto(){
     
     let id = Number(prompt('Ingrese el ID del Producto a modificar:'))
     
-    for (let i = 0; i < productos.length; i++){
-        if(productos[i].id === id){
-            let nombre = prompt('Ingrese el nuevo nombre del Producto:')
-            let precio = Number(prompt('Ingrese el nuevo precio del Producto:'))
-            productos[i].nombre = nombre, productos[i].precio = precio
-            alert('Producto modificado con éxito')
-            break; 
-        }else{
-            alert('No existe ese ID. Pruebe con otro')
-            break;  
-        }
-    }     
-}
+    const index = productos.findIndex((p) => p.id === id)    
+    if(index > -1){
+        let nombre = prompt('Ingrese el nuevo nombre del Producto:')
+        let precio = Number(prompt('Ingrese el nuevo precio del Producto:'))
+        productos[index].nombre = nombre, productos[index].precio = precio
+        alert('Producto modificado con éxito')        
+    }else{
+        alert('No existe ese ID. Pruebe con otro')            
+    }
+}    
+
 
 function eliminarProducto(){
     
     let id = Number(prompt('Ingrese el ID del Producto a eliminar:')) 
-        
-    for (let i = 0; i < productos.length; i++) {        
-        if(productos[i].id === id){
-            productos.splice(i, 1);
-            alert('Producto eliminado con éxito');
-            break;            
-        }else{
-            alert('No existe ese ID. Pruebe con otro'); 
-            break;      
-        }        
-    }    
+    
+    const index = productos.findIndex((p) => p.id === id)
+    if(index > -1){
+        productos.splice(index, 1); 
+        alert('Producto eliminado con éxito');
+    }else{
+        alert('No existe ese ID. Pruebe con otro');
+    }   
 }
